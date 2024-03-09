@@ -5,7 +5,7 @@ from pydantic import BaseModel
 import pandas as pd
 import json
 import datetime
-from app.models import univariate, multivariate, single_timeseries, multi_timeseries
+from app_complete.models import univariate, multivariate, single_timeseries, multi_timeseries
 
 app = FastAPI()
 
@@ -36,8 +36,11 @@ def post_univariate(
     
     # If debug = False, include only key, value, is_anomaly, and anomaly_score.  Remove other values
     results = { "anomalies": json.loads(df.to_json(orient='records')) }
-    
+    #df.to_json(orient='records'): This converts the DataFrame df into a JSON string using the to_json method with the 'records' orientation. The 'records' orientation represents each row as a dictionary, and the entire DataFrame is converted to a list of dictionaries.'''
     if (debug):
+        # Todo: add debug data
+        # Weights, ensemble details
+        results.update({ "debug_msg":"This is a logging message."})
         results.update({ "debug_weights": weights })
         results.update({ "debug_details": details })
     return results
