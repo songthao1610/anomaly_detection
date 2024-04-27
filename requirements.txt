@@ -1,0 +1,16 @@
+pandas
+fastapi
+pydantic
+uvicorn
+pandas
+numpy
+scikit-learn
+PyOD
+pytest
+scikit_posthocs
+streamlit
+seaborn
+plotly.express
+combo
+ruptures
+tslearn
